@@ -1,0 +1,90 @@
+#include<bits/stdc++.h>
+using namespace std;
+int stak[100] , n = 100  , top = -1;
+
+void push(int val)
+{
+    if(top >= n)
+    {
+        cout<<"Stack is full"<<endl;
+    }
+    else
+    {
+         top++;
+        stak[top] = val;
+
+    }
+}
+void pop()
+{
+    if(top <= -1)
+    {
+        cout<<"Nothing in the stack"<<endl;
+    }
+    else
+    {
+        cout<<"The pop value :"<<stak[top]<<endl;
+    }
+}
+void display()
+{
+    if(top>=0)
+    {
+        cout<<"Stack elements are :"<<endl;
+        for(int i =top;i>=0;i--)
+        {
+            cout<<stak[i]<<endl;
+        }
+    }
+    else
+    {
+        cout<<"Empty stack"<<endl;
+    }
+}
+int main ()
+{
+    int op , val ;
+do
+  {
+
+      cout<<"Enter your choice"<<endl;
+      cout<<"1. for push operation"<<endl;
+      cout<<"2. for pop operation"<<endl;
+      cout<<"3. for display stack "<<endl;
+      cout<<"4. Quit"<<endl;
+
+      cin>>op;
+
+      switch(op)
+      {
+          case 1:
+          {
+              cout<<"Enter the value to push :"<<endl;
+              cin>>val;
+              push(val);
+              break;
+          }
+          case 2:
+            {
+                pop();
+                break;
+            }
+          case 3:
+            {
+                display();
+                break;
+            }
+          case 4:
+            {
+               return 0;
+            }
+          default :
+            {
+              cout<<"Wrong query"<<endl;
+            }
+
+      }
+
+  }
+  while (op!=4);
+}
